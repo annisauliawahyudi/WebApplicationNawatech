@@ -1,28 +1,69 @@
 ﻿@{
     ViewData["Title"] = "Welcome";
+    Layout = "~/Views/Shared/_Layout.cshtml"; // pastikan kamu pakai layout
 }
 
-<div class="text-center">
-    <h2>Welcome to Nawatech Inventory System</h2>
-    <p>Please login to continue.</p>
+<style>
+    body {
+        background: url("/images/bg-nawatech.png") no-repeat center center fixed;
+        background-size: cover;
+        color: #ffffff;
+        font-family: 'Segoe UI', sans-serif;
+    }
 
+    .welcome-title {
+        font-size: 3rem;
+        font-weight: 700;
+        background: linear-gradient(to right, #FFA500, #FF6F00);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 1rem;
+    }
+
+    .welcome-desc {
+        font-size: 1.2rem;
+        color: #ccc;
+        margin-bottom: 2rem;
+    }
+
+    .btn-custom {
+        border: 2px solid #FF6F00;
+        color: #FF6F00;
+        padding: 10px 25px;
+        border-radius: 30px;
+        background-color: transparent;
+        transition: all 0.3s ease;
+        margin: 5px;
+    }
+
+        .btn-custom:hover {
+            background-color: #FF6F00;
+            color: white;
+        }
+</style>
+
+<div class="text-center mt-5">
+    <h2 class="welcome-title">Welcome to Nawatech Inventory System</h2>
+    <p class="welcome-desc">Transform your workflow and manage your products seamlessly.</p>
+
+    <a href="/Account/Login" class="btn btn-custom">Login</a>
+    <a href="/Account/Register" class="btn btn-custom">Register</a>
 </div>
+
 @section Scripts {
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
     <script>
         @if (TempData["LogoutMessage"] != null)
         {
                 <text>
-                    Swal.fire(
+                    Swal.fire({
                         icon: 'success',
                         title: 'Logged Out',
                         text: '@TempData["LogoutMessage"]',
                         timer: 2000,
                         showConfirmButton: false
-                    );
+                    });
                 </text>
         }
     </script>
 }
-
