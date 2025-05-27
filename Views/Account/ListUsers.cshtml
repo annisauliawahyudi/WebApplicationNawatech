@@ -1,0 +1,21 @@
+﻿@model IEnumerable<WebApplicationNawatech.Models.User>
+
+<h2>List of Users</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Email</td>
+                <td>@user.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>
